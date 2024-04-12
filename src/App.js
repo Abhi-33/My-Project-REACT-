@@ -27,7 +27,7 @@ function App() {
 
     const api = 'https://jsonplaceholder.typicode.com/posts';
 
-    fetch(data)
+    fetch(api)
     .then(response=>{
       if(!response.ok){
         throw new Error('Network request was not Ok');
@@ -55,7 +55,7 @@ function App() {
     <>
     <Navbar/>
 <h1>API Data</h1>
-{data && (<pre>JSON.stringify(data ,null , 2)</pre>)}
+{data && (<pre>{JSON.stringify(data ,null , 2)}</pre>)}
  {/* Display the data */}
             
     {/* <h1>I've rendered {count} times!</h1> */}
