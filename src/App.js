@@ -27,22 +27,22 @@ function App() {
 
     const api = 'https://jsonplaceholder.typicode.com/posts';
 
-    fetch(api)
+    fetch(data)
     .then(response=>{
       if(!response.ok){
-        throw new Error('Network request is not ok');
+        throw new Error('Network request was not Ok');
       }
-      response.json();
+      return response.json();
     })
     .then(data=>{
       setdata(data);
       setisLoading(false);
     })
     .catch(error=>{
-     setError(error);
+      setError(error);
       setisLoading(false);
     })
-  });
+  } , []);
  if (isLoading) {
         return <p>Loading...</p>;
     }
@@ -55,8 +55,9 @@ function App() {
     <>
     <Navbar/>
 <h1>API Data</h1>
+{data && (<pre>JSON.stringify(data ,null , 2)</pre>)}
  {/* Display the data */}
-            {data && <pre>JSON.stringify(null , 2)</pre>}
+            
     {/* <h1>I've rendered {count} times!</h1> */}
     </>
   );
