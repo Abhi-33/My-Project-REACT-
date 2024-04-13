@@ -1,12 +1,31 @@
 // import logo from './logo.svg';
-import {  useState } from 'react';
 import Navbar from './components/Navbar';
+import Home from './components/Home';
 import React from 'react'
+import Login from './components/Login';
+import About from './components/About';
+import {createBrowserRouter , RouterProvider} from 'react-router-dom'
+
 
 function App() {
-  const [count , setCount] = useState(0);
-  const [name, setname] = useState('Abhishek')
-  const [form, setform] = useState({})
+  const router = createBrowserRouter([
+    {
+      path : '/home',
+      element : <Home/>
+     },
+    {
+      path : '/login',
+      element : <Login/>
+     },
+     {
+      path : '/about',
+      element : <About/>
+     }
+  ])
+
+  // const [count , setCount] = useState(0);
+  // const [name, setname] = useState('Abhishek')
+  // const [form, setform] = useState({})
 // runs on every render 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -53,24 +72,26 @@ function App() {
 //         return <p>Error: {error.message}</p>;
 //     }
 
-const handleClick = () =>{
-  alert('hey i am clicked');
-}
+// const handleClick = () =>{
+//   alert('hey i am clicked');
+// }
 
-const handlemouseOver = () =>{
-  // alert('hey i am a mouse over');
-}
+// const handlemouseOver = () =>{
+//   // alert('hey i am a mouse over');
+// }
 
-const handleChange = (e) =>{
-  // setname(e.target.value);
-  setform({...form,[e.target.name]: e.target.value} );
-  console.log(form)
-}
+// const handleChange = (e) =>{
+//   // setname(e.target.value);
+//   setform({...form,[e.target.name]: e.target.value} );
+//   console.log(form)
+// }
 
 return (
     <>
+    <div>Hello my name is abhishek</div>
     <Navbar/>
-    <div className="button">
+  <RouterProvider router={router}/>
+    {/* <div className="button">
       <button onClick={handleClick}>click me</button>
     </div>
 
@@ -78,7 +99,7 @@ return (
       I am a red div.
     </div>
     <input type="text" name="email"   value={form.email?form.email : ""} onChange={handleChange} />
-    <input type="phone"  name='phone' value={form.phone?form.phone : ""} onChange={handleChange} />
+    <input type="phone"  name='phone' value={form.phone?form.phone : ""} onChange={handleChange} /> */}
 {/* <h1>API Data</h1>
 {data && (<pre>{JSON.stringify(data ,null , 2)}</pre>)} */}
  {/* Display the data */}
