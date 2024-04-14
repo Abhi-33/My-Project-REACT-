@@ -8,20 +8,7 @@ import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path : '/home',
-      element : <Home/>
-     },
-    {
-      path : '/login',
-      element : <Login/>
-     },
-     {
-      path : '/about',
-      element : <About/>
-     }
-  ])
+ 
 
   // const [count , setCount] = useState(0);
   // const [name, setname] = useState('Abhishek')
@@ -90,7 +77,7 @@ return (
     <>
     <div>Hello my name is abhishek</div>
     <Navbar/>
-  <RouterProvider router={router}/>
+ 
     {/* <div className="button">
       <button onClick={handleClick}>click me</button>
     </div>
